@@ -5,7 +5,7 @@ var router = express.Router()
 const Trajet = require("../models/trajets") // Require le modèle trajets
 
 router.get('/', (req, res) => {
-    Trajet.find({departure :req.body.departure, arrival : req.body.arrival}).then(data => {
+    Trajet.find({departure :req.body.departure, arrival : req.body.arrival, date: req.body.date}).then(data => {
         if(data.length !==0) {
             res.json({result: true, searchedTrip: data})
         } else {
